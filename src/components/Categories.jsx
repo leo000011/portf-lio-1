@@ -1,7 +1,10 @@
 import React from 'react'
 import { assets, categories } from '../assets/greencart_assets/assets'
+import { useAppContext } from '../context/appContext'
 
 const Categories = () => {
+
+  const navigate = useAppContext()
   return (
     <div className='mt-16'>
         <p className='text-2xl md:text-3xl font-medium'>Categories</p>
@@ -10,7 +13,11 @@ const Categories = () => {
             {categories.map((itens, index) => {
             return (
               <div key={index} 
-            // style={{backgroundColor: itens.bgColor}}
+            style={{backgroundColor: itens.bgColor}}
+            onclick={() => {
+              navigate(`/products/${itens.path.toLowerCase()}`)
+                scrollTo(0,0)
+            }}
             className='group cursor-pointer py-5 px-3 gap-2 rounded-lg flex flex-col justify-center items-center'>
                 <img src={itens.image} alt="" className='group-hover:scale-108 transition max-w-28' />
                 <p className='text-sm font-medium'>{itens.text}</p>
