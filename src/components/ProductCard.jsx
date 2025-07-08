@@ -4,8 +4,8 @@ import { assets } from '../assets/greencart_assets/assets';
 
 const ProductCard = () => {
     const [count, setCount] = React.useState(0);
-    const {currency} = useAppContext()
-
+    const {currency, addToCart, removeFromCart, cartItems, navigate} = useAppContext()
+    
     const {product} = useAppContext()
 
     return (
